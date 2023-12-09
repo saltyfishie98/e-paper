@@ -1,0 +1,31 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/debian
+{
+	"name": "Debian",
+	"dockerFile": "dockerfile",
+	"postCreateCommand": "bash /workspaces/e-paper_epd2in4v2/.devcontainer/build-deps.sh",
+	"runArgs": [
+		"--userns=keep-id:uid=1000,gid=1000"
+	],
+	"containerUser": "vscode",
+	"updateRemoteUserUID": true,
+	"containerEnv": {
+		"HOME": "/home/vscode"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"eamodio.gitlens",
+				"ms-vscode.makefile-tools",
+				"ms-vscode.cpptools"
+			]
+		}
+	},
+	"mounts": [
+		{
+			"type": "bind",
+			"source": "/home/${localEnv:USER}/.ssh",
+			"target": "/home/vscode/.ssh,readonly"
+		}
+	]
+}

@@ -1,0 +1,13 @@
+{
+    "autoHide.autoHidePanel": true,
+    "makefile.configurations": [
+        {
+            "name": "EPD4IN2V2",
+            "makeArgs": ["EPD=epd4in2V2"],
+        }
+    ],
+    "files.associations": {
+        "epd_test.h": "c"
+    },
+    "autoHide.autoHideRightSideBar": false,
+}

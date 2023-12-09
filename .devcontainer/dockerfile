@@ -1,0 +1,4 @@
+FROM mcr.microsoft.com/devcontainers/base:bookworm
+
+RUN sudo apt-get update && sudo apt-get upgrade -y
+RUN sudo apt-get install gcc make gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu libgpiod-dev automake autoconf autoconf-archive libtool pkg-config -y
