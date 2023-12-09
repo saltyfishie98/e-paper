@@ -1,0 +1,34 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Debug: Build",
+            "type": "shell",
+            "command": "make EPD=epd4in2V2",
+            "group": {
+                "kind": "build",
+            }
+        },
+        {
+            "label": "Debug: Send",
+            "dependsOn": "Debug: Build",
+            "type": "shell",
+            "command": "make send",
+            "group": {
+                "kind": "build",
+            }
+        },
+        {
+            "label": "Debug: Launch Remote",
+            "dependsOn": "Debug: Send",
+            "type": "shell",
+            "command": "${workspaceFolder}/tools/remote_debug.sh",
+            "args": [ "rpi0.home", "17777" ],
+            "group": {
+                "kind": "none",
+            }
+        }
+    ]
+}
